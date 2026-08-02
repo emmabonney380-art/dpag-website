@@ -1,0 +1,638 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="DPAG Setup Guide - Complete instructions for deploying and customizing your professional website">
+    <title>DPAG Website Setup Guide</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f8f8f8;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        header {
+            background: linear-gradient(135deg, #0a1628 0%, #1b4d3e 100%);
+            color: white;
+            padding: 40px 20px;
+            text-align: center;
+            margin-bottom: 40px;
+            border-bottom: 4px solid #d4a574;
+        }
+
+        header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            color: #d4a574;
+        }
+
+        header p {
+            font-size: 1.1rem;
+            color: rgba(255, 255, 255, 0.9);
+        }
+
+        .section {
+            background: white;
+            padding: 30px;
+            margin-bottom: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            border-left: 4px solid #d4a574;
+        }
+
+        h2 {
+            color: #0a1628;
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            border-bottom: 2px solid #d4a574;
+            padding-bottom: 10px;
+        }
+
+        h3 {
+            color: #1b4d3e;
+            font-size: 1.3rem;
+            margin-top: 20px;
+            margin-bottom: 10px;
+        }
+
+        p {
+            margin-bottom: 15px;
+            color: #666;
+        }
+
+        ul, ol {
+            margin-left: 20px;
+            margin-bottom: 15px;
+        }
+
+        li {
+            margin-bottom: 10px;
+            color: #666;
+        }
+
+        code {
+            background-color: #f0f0f0;
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-family: 'Courier New', monospace;
+            color: #d4a574;
+            font-weight: 600;
+        }
+
+        .code-block {
+            background-color: #0a1628;
+            color: #d4a574;
+            padding: 20px;
+            border-radius: 8px;
+            overflow-x: auto;
+            margin-bottom: 20px;
+            font-family: 'Courier New', monospace;
+            font-size: 0.9rem;
+            line-height: 1.5;
+        }
+
+        .highlight {
+            background-color: #fff3cd;
+            padding: 15px;
+            border-left: 4px solid #ffc107;
+            margin-bottom: 20px;
+            border-radius: 4px;
+        }
+
+        .success {
+            background-color: #d4edda;
+            border-left-color: #28a745;
+            color: #155724;
+        }
+
+        .warning {
+            background-color: #fff3cd;
+            border-left-color: #ffc107;
+            color: #856404;
+        }
+
+        .info {
+            background-color: #d1ecf1;
+            border-left-color: #17a2b8;
+            color: #0c5460;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+
+        th, td {
+            padding: 12px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+
+        th {
+            background-color: #0a1628;
+            color: #d4a574;
+            font-weight: 600;
+        }
+
+        tr:hover {
+            background-color: #f5f5f5;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 24px;
+            background-color: #d4a574;
+            color: #0a1628;
+            text-decoration: none;
+            border-radius: 4px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            border: 2px solid #d4a574;
+        }
+
+        .btn:hover {
+            background-color: #b8935f;
+            border-color: #b8935f;
+        }
+
+        footer {
+            text-align: center;
+            padding: 20px;
+            color: #999;
+            margin-top: 40px;
+            border-top: 1px solid #ddd;
+        }
+
+        .checklist {
+            list-style: none;
+            margin-left: 0;
+        }
+
+        .checklist li {
+            padding: 8px 0;
+            padding-left: 25px;
+            position: relative;
+        }
+
+        .checklist li:before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: #d4a574;
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>🚀 DPAG Website Setup Guide</h1>
+        <p>Diaspora Project Assist Ghana - Deployment & Customization Instructions</p>
+    </header>
+
+    <div class="container">
+        <!-- Quick Start -->
+        <div class="section">
+            <h2>⚡ Quick Start</h2>
+            <p>Get your DPAG website live in just a few minutes:</p>
+            
+            <h3>Step 1: Prepare Your Assets</h3>
+            <ol>
+                <li>Create an <code>assets</code> folder in your project root</li>
+                <li>Add the DPAG logo images:
+                    <ul>
+                        <li><code>assets/dpag-logo.png</code> - Colored version (recommended: 200x200px)</li>
+                        <li><code>assets/dpag-logo-white.png</code> - White version (recommended: 200x200px)</li>
+                    </ul>
+                </li>
+                <li>Add background image: <code>assets/hero-bg.jpg</code> (recommended: 1920x1080px, optimized for web)</li>
+            </ol>
+
+            <h3>Step 2: Deploy to Netlify</h3>
+            <ol>
+                <li>Push your code to GitHub</li>
+                <li>Visit <a href="https://netlify.com" target="_blank">netlify.com</a></li>
+                <li>Click "New site from Git"</li>
+                <li>Select your GitHub repository</li>
+                <li>Keep default settings (no build command needed)</li>
+                <li>Click "Deploy"</li>
+            </ol>
+
+            <h3>Step 3: Add Your Domain</h3>
+            <ol>
+                <li>In Netlify, go to Domain settings</li>
+                <li>Add your custom domain</li>
+                <li>Follow DNS setup instructions</li>
+                <li>SSL certificate is automatic ✓</li>
+            </ol>
+
+            <div class="highlight success">
+                <strong>✓ Done!</strong> Your website is now live and accessible worldwide.
+            </div>
+        </div>
+
+        <!-- File Uploads -->
+        <div class="section">
+            <h2>🖼️ Required Image Assets</h2>
+            
+            <p>Create an <code>assets/</code> folder with the following images:</p>
+            
+            <table>
+                <tr>
+                    <th>File Name</th>
+                    <th>Purpose</th>
+                    <th>Recommended Size</th>
+                    <th>Format</th>
+                </tr>
+                <tr>
+                    <td><code>dpag-logo.png</code></td>
+                    <td>Brand logo in navbar</td>
+                    <td>200×200px</td>
+                    <td>PNG (transparent)</td>
+                </tr>
+                <tr>
+                    <td><code>dpag-logo-white.png</code></td>
+                    <td>Logo for hero & footer</td>
+                    <td>200×200px</td>
+                    <td>PNG (transparent)</td>
+                </tr>
+                <tr>
+                    <td><code>hero-bg.jpg</code></td>
+                    <td>Hero section background</td>
+                    <td>1920×1080px</td>
+                    <td>JPG (optimized)</td>
+                </tr>
+                <tr>
+                    <td><code>favicon.ico</code></td>
+                    <td>Browser tab icon</td>
+                    <td>32×32px</td>
+                    <td>ICO</td>
+                </tr>
+            </table>
+
+            <h3>Gallery Images (Optional)</h3>
+            <p>Create <code>assets/gallery/</code> folder with project photos:</p>
+            <ul class="checklist">
+                <li>construction-1.jpg</li>
+                <li>construction-2.jpg</li>
+                <li>property-1.jpg</li>
+                <li>property-2.jpg</li>
+                <li>land-1.jpg</li>
+                <li>land-2.jpg</li>
+                <li>inspection-1.jpg</li>
+                <li>inspection-2.jpg</li>
+            </ul>
+
+            <div class="highlight info">
+                <strong>💡 Tip:</strong> Optimize all images using tools like TinyPNG or ImageOptim to reduce file sizes and improve page speed.
+            </div>
+        </div>
+
+        <!-- Customization -->
+        <div class="section">
+            <h2>🎨 Customizing Your Website</h2>
+
+            <h3>Changing Contact Information</h3>
+            <p>Edit these sections in <code>index.html</code>:</p>
+            
+            <div class="code-block">
+&lt;!-- Find and update in Contact section --&gt;
+&lt;h3&gt;Emmanuel Bonney&lt;/h3&gt;  &lt;!-- Your name --&gt;
+&lt;p class="contact-title"&gt;Founder &amp; Managing Director&lt;/p&gt;
+
+&lt;a href="tel:+233502140800"&gt;+233 50 214 0800&lt;/a&gt;
+&lt;a href="tel:+233554660148"&gt;+233 55 466 0148&lt;/a&gt;
+&lt;a href="mailto:emmabonney380@gmail.com"&gt;emmabonney380@gmail.com&lt;/a&gt;
+            </div>
+
+            <h3>Changing Colors</h3>
+            <p>Edit CSS variables in <code>styles.css</code>:</p>
+            
+            <div class="code-block">
+:root {
+    --color-navy: #0a1628;        /* Main background */
+    --color-green: #1b4d3e;       /* Secondary brand */
+    --color-gold: #d4a574;        /* Primary accent */
+    --color-white: #ffffff;
+    --color-gray: #666666;
+}
+            </div>
+
+            <h3>Updating Service Descriptions</h3>
+            <p>Edit the services grid in <code>index.html</code>. Each service card follows this structure:</p>
+            
+            <div class="code-block">
+&lt;div class="service-card"&gt;
+    &lt;div class="service-icon"&gt;&lt;svg&gt;...&lt;/svg&gt;&lt;/div&gt;
+    &lt;h3&gt;Service Name&lt;/h3&gt;
+    &lt;p&gt;Service description...&lt;/p&gt;
+&lt;/div&gt;
+            </div>
+
+            <h3>Adding Testimonials</h3>
+            <p>Replace placeholder text in the Testimonials section:</p>
+            
+            <div class="code-block">
+&lt;div class="testimonial-card"&gt;
+    &lt;div class="stars"&gt;★★★★★&lt;/div&gt;
+    &lt;p class="testimonial-text"&gt;
+        "Real client testimonial here..."
+    &lt;/p&gt;
+    &lt;p class="testimonial-author"&gt;— Client Name&lt;/p&gt;
+&lt;/div&gt;
+            </div>
+        </div>
+
+        <!-- Form Setup -->
+        <div class="section">
+            <h2>📧 Contact Form Setup</h2>
+
+            <p>The contact form is ready to receive submissions. To process form data, you have several options:</p>
+
+            <h3>Option 1: Netlify Forms (Recommended - Free)</h3>
+            <ol>
+                <li>Form already has <code>netlify</code> attribute in HTML</li>
+                <li>Deploy to Netlify</li>
+                <li>Go to Netlify Dashboard → Forms tab</li>
+                <li>Submissions appear automatically ✓</li>
+                <li>Set up email notifications in settings</li>
+            </ol>
+
+            <h3>Option 2: Using Formspree</h3>
+            <ol>
+                <li>Visit <a href="https://formspree.io" target="_blank">formspree.io</a></li>
+                <li>Create account and new form</li>
+                <li>Update form action in HTML:
+                    <div class="code-block">
+&lt;form action="https://formspree.io/f/YOUR_ID" method="POST"&gt;
+                    </div>
+                </li>
+                <li>Test the form</li>
+            </ol>
+
+            <h3>Option 3: Using Your Own Backend</h3>
+            <p>If you have a backend server, update the form in <code>index.html</code>:</p>
+            
+            <div class="code-block">
+&lt;form action="https://your-api.com/contact" method="POST"&gt;
+    &lt;!-- form fields --&gt;
+&lt;/form&gt;
+            </div>
+
+            <div class="highlight warning">
+                <strong>⚠️ Important:</strong> Never expose API keys in frontend code. Always use serverless functions or backend endpoints for sensitive operations.
+            </div>
+        </div>
+
+        <!-- SEO & Performance -->
+        <div class="section">
+            <h2>🔍 SEO & Performance Optimization</h2>
+
+            <h3>SEO Checklist</h3>
+            <ul class="checklist">
+                <li>Update meta descriptions in &lt;head&gt;</li>
+                <li>Add your business name to all title tags</li>
+                <li>Include location keywords (Ghana, Accra)</li>
+                <li>Add alt text to all images</li>
+                <li>Install Google Analytics</li>
+                <li>Submit sitemap to Google Search Console</li>
+                <li>Add schema markup for local business</li>
+            </ul>
+
+            <h3>Adding Google Analytics</h3>
+            <p>Add this to the &lt;head&gt; section of index.html:</p>
+            
+            <div class="code-block">
+&lt;script async src="https://www.googletagmanager.com/gtag/js?id=GA_ID"&gt;&lt;/script&gt;
+&lt;script&gt;
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'GA_ID');
+&lt;/script&gt;
+            </div>
+
+            <p>Replace <code>GA_ID</code> with your Google Analytics ID.</p>
+
+            <h3>Performance Tips</h3>
+            <ul class="checklist">
+                <li>Compress all images (TinyPNG, ImageOptim)</li>
+                <li>Enable GZIP compression on your server</li>
+                <li>Use browser caching headers</li>
+                <li>Minimize CSS and JavaScript in production</li>
+                <li>Use a CDN for image delivery</li>
+                <li>Test with Google PageSpeed Insights</li>
+            </ul>
+        </div>
+
+        <!-- Google Maps -->
+        <div class="section">
+            <h2>🗺️ Google Maps Integration</h2>
+
+            <p>The website includes an embedded Google Map. To customize:</p>
+
+            <h3>Get Your Google Maps Embed URL</h3>
+            <ol>
+                <li>Visit <a href="https://maps.google.com" target="_blank">maps.google.com</a></li>
+                <li>Search for your business location</li>
+                <li>Click the location</li>
+                <li>Click "Share" → "Embed a map"</li>
+                <li>Copy the iframe code</li>
+            </ol>
+
+            <h3>Update the Map in Your Website</h3>
+            <p>Replace the iframe in the Contact section:</p>
+            
+            <div class="code-block">
+&lt;iframe src="https://www.google.com/maps/embed?pb=..." 
+    width="100%" height="300" style="border:0;" 
+    allowfullscreen="" loading="lazy"&gt;&lt;/iframe&gt;
+            </div>
+
+            <div class="highlight info">
+                <strong>💡 Tip:</strong> Include your business address in Google My Business for better local SEO visibility.
+            </div>
+        </div>
+
+        <!-- Mobile Testing -->
+        <div class="section">
+            <h2>📱 Testing & Quality Assurance</h2>
+
+            <h3>Desktop Testing</h3>
+            <ul class="checklist">
+                <li>Chrome (latest)</li>
+                <li>Firefox (latest)</li>
+                <li>Safari (latest)</li>
+                <li>Edge (latest)</li>
+            </ul>
+
+            <h3>Mobile Testing</h3>
+            <ul class="checklist">
+                <li>iPhone (Safari)</li>
+                <li>Android (Chrome)</li>
+                <li>Test touch interactions</li>
+                <li>Verify form responsiveness</li>
+            </ul>
+
+            <h3>Performance Testing</h3>
+            <ul class="checklist">
+                <li>Google PageSpeed Insights</li>
+                <li>GTmetrix</li>
+                <li>WebPageTest</li>
+                <li>Lighthouse (Chrome DevTools)</li>
+            </ul>
+
+            <h3>SEO Testing</h3>
+            <ul class="checklist">
+                <li>Google Search Console</li>
+                <li>Bing Webmaster Tools</li>
+                <li>Mobile-Friendly Test</li>
+                <li>Schema Markup Validator</li>
+            </ul>
+        </div>
+
+        <!-- Troubleshooting -->
+        <div class="section">
+            <h2>🔧 Troubleshooting</h2>
+
+            <h3>Images Not Showing</h3>
+            <p><strong>Problem:</strong> Images appear broken on deployed site</p>
+            <p><strong>Solution:</strong></p>
+            <ul>
+                <li>Check image paths are relative (not absolute)</li>
+                <li>Verify images are in correct folder structure</li>
+                <li>Ensure image filenames match HTML exactly</li>
+                <li>Check file permissions on server</li>
+            </ul>
+
+            <h3>Mobile Menu Not Working</h3>
+            <p><strong>Problem:</strong> Hamburger menu doesn't respond on mobile</p>
+            <p><strong>Solution:</strong></p>
+            <ul>
+                <li>Check JavaScript is loaded (no console errors)</li>
+                <li>Verify viewport meta tag is in &lt;head&gt;</li>
+                <li>Clear browser cache</li>
+                <li>Test in different browsers</li>
+            </ul>
+
+            <h3>Form Not Submitting</h3>
+            <p><strong>Problem:</strong> Contact form shows error</p>
+            <p><strong>Solution:</strong></p>
+            <ul>
+                <li>Check form action attribute is correct</li>
+                <li>Verify all required fields have names</li>
+                <li>Check browser console for errors (F12)</li>
+                <li>Test in incognito mode (disable extensions)</li>
+            </ul>
+
+            <h3>Page Loading Slowly</h3>
+            <p><strong>Problem:</strong> Website takes too long to load</p>
+            <p><strong>Solution:</strong></p>
+            <ul>
+                <li>Optimize and compress all images</li>
+                <li>Enable browser caching</li>
+                <li>Use CDN for static files</li>
+                <li>Minimize CSS and JavaScript</li>
+                <li>Run PageSpeed Insights test</li>
+            </ul>
+        </div>
+
+        <!-- Maintenance -->
+        <div class="section">
+            <h2>🛠️ Ongoing Maintenance</h2>
+
+            <h3>Monthly Tasks</h3>
+            <ul class="checklist">
+                <li>Check for broken links</li>
+                <li>Review analytics data</li>
+                <li>Update testimonials if new ones available</li>
+                <li>Monitor form submissions</li>
+            </ul>
+
+            <h3>Quarterly Tasks</h3>
+            <ul class="checklist">
+                <li>Update gallery with new projects</li>
+                <li>Review and update service descriptions</li>
+                <li>Check mobile responsiveness</li>
+                <li>Test all forms and CTAs</li>
+                <li>Update contact information if changed</li>
+            </ul>
+
+            <h3>Annual Tasks</h3>
+            <ul class="checklist">
+                <li>Refresh design if needed</li>
+                <li>Update SSL certificates</li>
+                <li>Review and update all content</li>
+                <li>Performance audit</li>
+                <li>Security audit</li>
+            </ul>
+        </div>
+
+        <!-- Support -->
+        <div class="section">
+            <h2>📞 Support & Resources</h2>
+
+            <h3>Quick Links</h3>
+            <ul>
+                <li><a href="https://developer.mozilla.org/" target="_blank">MDN Web Docs</a> - HTML/CSS/JavaScript reference</li>
+                <li><a href="https://www.netlify.com/docs/" target="_blank">Netlify Documentation</a> - Hosting guide</li>
+                <li><a href="https://www.w3schools.com/" target="_blank">W3Schools</a> - Web development tutorials</li>
+                <li><a href="https://github.com/" target="_blank">GitHub Docs</a> - Version control guide</li>
+            </ul>
+
+            <h3>Contact DPAG</h3>
+            <p>
+                <strong>Emmanuel Bonney</strong><br>
+                Founder & Managing Director<br>
+                <strong>Phone:</strong> +233 50 214 0800 | +233 55 466 0148<br>
+                <strong>Email:</strong> emmabonney380@gmail.com<br>
+                <strong>Location:</strong> Accra, Ghana
+            </p>
+        </div>
+
+        <!-- Final Checklist -->
+        <div class="section" style="background-color: #d4edda; border-left-color: #28a745;">
+            <h2>✅ Final Deployment Checklist</h2>
+            
+            <ul class="checklist">
+                <li>All images uploaded to assets folder</li>
+                <li>Logo images optimized and placed</li>
+                <li>Contact information updated</li>
+                <li>Gallery images added (if applicable)</li>
+                <li>Form setup configured</li>
+                <li>Google Maps embedded</li>
+                <li>Google Analytics installed</li>
+                <li>Meta tags and SEO optimized</li>
+                <li>Site tested on mobile and desktop</li>
+                <li>All links tested and working</li>
+                <li>Performance optimization completed</li>
+                <li>Domain purchased and configured</li>
+                <li>SSL certificate active (auto on Netlify)</li>
+                <li>Deployed and live ✓</li>
+            </ul>
+
+            <p style="margin-top: 20px; color: #155724;"><strong>Congratulations! Your DPAG website is ready to serve diaspora clients worldwide.</strong></p>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2026 Diaspora Project Assist Ghana (DPAG). Setup Guide by Copilot.</p>
+        <p style="margin-top: 10px; font-size: 0.9rem;">Last Updated: August 2026</p>
+    </footer>
+</body>
+</html>
