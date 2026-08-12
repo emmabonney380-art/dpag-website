@@ -313,7 +313,7 @@ a:hover {
 .logo {
     display: flex;
     align-items: center;
-    gap: 12px;
+    gap: 10px;
     transition: var(--transition);
 }
 
@@ -322,17 +322,41 @@ a:hover {
 }
 
 .logo-img {
-    height: 50px;
+    height: 38px;
     width: auto;
-    filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.3));
+    filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.25));
+}
+
+.logo-divider {
+    width: 2px;
+    height: 32px;
+    background: var(--color-gold);
+    display: block;
+}
+
+.logo-name {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    line-height: 1.1;
 }
 
 .logo-text {
     font-family: var(--font-primary);
-    font-size: 1.8rem;
+    font-size: 1.65rem;
     font-weight: 700;
     color: var(--color-gold);
     letter-spacing: 1px;
+}
+
+.logo-tagline {
+    font-family: var(--font-primary);
+    font-size: 0.55rem;
+    font-weight: 600;
+    color: var(--color-white);
+    letter-spacing: 0.8px;
+    margin-top: 3px;
+    white-space: nowrap;
 }
 
 .nav-menu {
