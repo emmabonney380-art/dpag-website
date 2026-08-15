@@ -467,7 +467,8 @@ a:hover {
     align-items: center;
     justify-content: center;
     gap: 18px;
-    margin-bottom: 18px;
+    margin-bottom: 2rem;
+    animation: fadeInDown 0.8s ease;
 }
 
 .hero-logo-text {
@@ -479,6 +480,13 @@ a:hover {
     line-height: 1;
 }
 
+.hero-line {
+    display: block;
+    width: 65px;
+    height: 2px;
+    background: var(--color-gold);
+    flex-shrink: 0;
+}
 .hero-line {
     width: 65px;
     height: 2px;
