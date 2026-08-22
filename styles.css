@@ -438,10 +438,10 @@ a:hover {
 }
 
 .hero-image {
-   width: 100%;
+    width: 100%;
     height: 100%;
-    object-fit: contain;
-    object-position: center bottom;
+    object-fit: cover;
+    object-position: center center;
     animation: fadeIn 1.2s ease;
 }
 .hero-overlay {
@@ -450,10 +450,11 @@ a:hover {
     left: 0;
     width: 100%;
     height: 100%;
-background: linear-gradient(135deg, rgba(10, 22, 40, 0.55) 0%, rgba(27, 77, 62, 0.45) 100%);
-}
-.hero-content {
-    position: relative;
+background: linear-gradient(
+    135deg,
+    rgba(10, 22, 40, 0.42) 0%,
+    rgba(27, 77, 62, 0.32) 100%
+);    position: relative;
     z-index: 2;
     text-align: center;
     color: var(--color-white);
