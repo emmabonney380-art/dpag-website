@@ -442,13 +442,12 @@ a:hover {
     left: 0;
     bottom: 0;
     width: 100%;
-    height: auto;
-    max-height: 75%;
-    object-fit: contain;
+    height: 72%;
+    object-fit: cover;
     object-position: center bottom;
     animation: fadeIn 1.2s ease;
-}
 
+}
 .hero-overlay {
     position: absolute;
     top: 0;
@@ -457,12 +456,12 @@ a:hover {
     height: 100%;
     background: linear-gradient(
         180deg,
-        rgba(10, 22, 40, 0.70) 0%,
-        rgba(10, 22, 40, 0.45) 45%,
-        rgba(10, 22, 40, 0.20) 100%
+        rgba(10, 22, 40, 0.78) 0%,
+        rgba(10, 22, 40, 0.48) 45%,
+        rgba(10, 22, 40, 0.18) 100%
     );
     z-index: 1;
-}
+}    
 
 .hero-content {
     position: relative;
