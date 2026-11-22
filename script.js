@@ -69,7 +69,7 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
 });
 
 // ============================================
-// Form Submission
+// Form Submission - Formspree
 // ============================================
 
 const contactForm = document.getElementById('contactForm');
@@ -78,39 +78,70 @@ if (contactForm) {
     contactForm.addEventListener('submit', async (e) => {
         e.preventDefault();
 
-        const formData = new FormData(contactForm);
-        const data = Object.fromEntries(formData);
+        const submitButton = contactForm.querySelector('button[type="submit"]');
+        const originalButtonText = submitButton ? submitButton.textContent : '';
 
-        // Here you would typically send the form data to a server
-        // For now, we'll just show a success message
+        if (submitButton) {
+            submitButton.disabled = true;
+            submitButton.textContent = 'Sending...';
+        }
 
-        console.log('Form Data:', data);
+        try {
+            const response = await fetch(contactForm.action, {
+                method: 'POST',
+                body: new FormData(contactForm),
+                headers: {
+                    'Accept': 'application/json'
+                }
+            });
 
-        // Show success message
-        showFormSuccess();
-
-        // Reset form
-        contactForm.reset();
+            if (response.ok) {
+                contactForm.reset();
+                showFormMessage("Thank you for contacting DPAG. Your enquiry has been sent successfully. We'll get back to you soon.", 'success');
+            } else {
+                let errorMessage = 'We could not send your enquiry. Please try again or contact us on WhatsApp.';
+                try {
+                    const result = await response.json();
+                    if (result.errors && result.errors.length) {
+                        errorMessage = result.errors.map(error => error.message).join(' ');
+                    }
+                } catch (parseError) {
+                    // Keep the general error message if the response is not JSON.
+                }
+                showFormMessage(errorMessage, 'error');
+            }
+        } catch (error) {
+            showFormMessage('There was a connection problem. Please check your internet and try again, or contact DPAG on WhatsApp.', 'error');
+        } finally {
+            if (submitButton) {
+                submitButton.disabled = false;
+                submitButton.textContent = originalButtonText;
+            }
+        }
     });
 }
 
-function showFormSuccess() {
-    // Create success message
-    const successDiv = document.createElement('div');
-    successDiv.className = 'form-success';
-    successDiv.innerHTML = `
-        <div style="background-color: #d4a574; color: #0a1628; padding: 1rem; border-radius: 4px; margin-bottom: 1rem; text-align: center; font-weight: 600;">
-            Thank you for reaching out! We'll get back to you soon.
-        </div>
-    `;
-
+function showFormMessage(message, type) {
     const formWrapper = document.querySelector('.contact-form-wrapper');
-    formWrapper.insertBefore(successDiv, contactForm);
+    if (!formWrapper) return;
 
-    // Remove success message after 5 seconds
-    setTimeout(() => {
-        successDiv.remove();
-    }, 5000);
+    const previousMessage = formWrapper.querySelector('.form-success, .form-error');
+    if (previousMessage) previousMessage.remove();
+
+    const messageDiv = document.createElement('div');
+    messageDiv.className = type === 'success' ? 'form-success' : 'form-error';
+    messageDiv.setAttribute('role', 'status');
+    messageDiv.textContent = message;
+
+    messageDiv.style.cssText = type === 'success'
+        ? 'background-color: #d4a574; color: #0a1628; padding: 1rem; border-radius: 4px; margin-bottom: 1rem; text-align: center; font-weight: 600;'
+        : 'background-color: #f8d7da; color: #842029; padding: 1rem; border-radius: 4px; margin-bottom: 1rem; text-align: center; font-weight: 600;';
+
+    formWrapper.insertBefore(messageDiv, contactForm);
+
+    if (type === 'success') {
+        setTimeout(() => messageDiv.remove(), 7000);
+    }
 }
 
 // ============================================
